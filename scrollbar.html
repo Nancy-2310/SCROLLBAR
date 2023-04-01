@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCROLL BAR</title>
+    <style>
+        body{
+            height: 200vh;
+        }
+        #scroll{
+            height: 10px;
+            width: 0px;
+            position: fixed;
+            top: 5px;
+            left: 0px;
+            background-color: blue;
+            z-index: 999;
+            transition: width 0.2s ease-in-out;
+        }    
+    </style>
+</head>
+<body>
+    <div id="scroll"></div>
+    <script>
+        let bar=document.getElementById("scroll");
+        window.addEventListener("scroll",function func(){
+            let scrollposition=window.scrollY;
+            let documentheight=document.documentElement.scrollHeight;
+            let windowheight=window.innerHeight;
+            var scrollpercentage=scrollposition/(documentheight-windowheight)*100;
+            bar.style.width=scrollpercentage+'%';
+
+        });
+        
+    </script>
+</body>
+</html>
